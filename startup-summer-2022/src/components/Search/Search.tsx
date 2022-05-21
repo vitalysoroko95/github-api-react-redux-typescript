@@ -15,10 +15,10 @@ const Search = () => {
 
   const { setUsername } = userSlice.actions;
   const { register, handleSubmit } = useForm<IFormInput>();
- 
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const username = data.search
-    dispatch(setUsername(username)) 
+    const username = data.search;
+    dispatch(setUsername(username));
   };
 
   return (
