@@ -11,24 +11,38 @@ import { IRepsDataResponce } from "../types";
 interface IRepositoriesState {
   error: string;
   isLoading: boolean;
+  currentPage: number;
+  perPage: number;
   repData: IRepsDataResponce[];
+}
+
+interface IReqestData {
+  username: string;
+  perPage: number;
+  page: number;
 }
 
 const initialState = {
   error: "",
   isLoading: false,
   repData: [],
+  currentPage: 1,
+  perPage: 4,
 };
 
 export const getRepositories: AsyncThunk<
   IRepsDataResponce,
-  string,
+  IReqestData,
   EmptyObject
 > = createAsyncThunk(
   "getRepositories",
-  async (username: string): Promise<IRepsDataResponce> => {
+  async (args: {
+    username: string;
+    perPage: number;
+    page: number;
+  }): Promise<IRepsDataResponce> => {
     const response: AxiosResponse<IRepsDataResponce> = await axios.get(
-      `https://api.github.com/users/${username}/repos`
+      `https://api.github.com/users/${args.username}/repos?page=${args.page}&per_page=${args.perPage}`
     );
     return response.data;
   }
@@ -37,7 +51,12 @@ export const getRepositories: AsyncThunk<
 export const repositoriesSlice = createSlice({
   name: "repositoriesSlice",
   initialState,
-  reducers: {},
+
+  reducers: {
+    setCurrentPage: (state, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: {
     [getRepositories.fulfilled.type]: (
       state: IRepositoriesState,
@@ -45,7 +64,6 @@ export const repositoriesSlice = createSlice({
     ) => {
       state.isLoading = false;
       state.repData = action.payload;
-      console.log(state.repData);
       state.error = "";
     },
     [getRepositories.pending.type]: (state: IRepositoriesState) => {

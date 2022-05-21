@@ -24,7 +24,9 @@ const Search = () => {
   return (
     <div className="search-bar">
       <form className="input-form" onSubmit={handleSubmit(onSubmit)}>
+        <span className="search-icon"></span>
         <input
+          className="text-field__input"
           placeholder="Enter GitHub username"
           type="text"
           {...register("search", { required: true })}

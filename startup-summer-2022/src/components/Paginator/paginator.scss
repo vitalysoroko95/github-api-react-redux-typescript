@@ -1,0 +1,31 @@
+.pagination-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.selectedPage {
+   border: 2px solid #783fe8;
+   border-radius: 8px;
+ 
+}
+
+.pageNumber {
+   color: #000000;
+   margin: 0 5px ;
+}
+
+.pagination-button{
+   width: 60px;
+   border-radius: 10px;
+   color: white;
+   background-color: #009176;
+   border: 2px solid #783fe8;
+   cursor: pointer;
+   margin: 0 10px;
+}

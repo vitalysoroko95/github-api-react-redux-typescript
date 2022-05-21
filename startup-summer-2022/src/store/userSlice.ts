@@ -48,7 +48,6 @@ export const userSlice = createSlice({
     ) => {
       state.isLoading = false;
       state.userData = action.payload;
-      console.log(state.userData);
       state.error = "";
     },
     [getUser.pending.type]: (state: IUserState) => {
@@ -57,6 +56,7 @@ export const userSlice = createSlice({
     [getUser.rejected.type]: (state: IUserState, action) => {
       state.isLoading = false;
       state.error = action.error.message;
+      console.log(state.error);
     },
   },
 });

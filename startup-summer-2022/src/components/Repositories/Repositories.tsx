@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppSelector } from "../../store/hooks/redux";
+import PaginationBar from "../Paginator/Paginator";
 import RepositoriesItem from "../RepositoriesItem/RepositoriesItem";
 
 import "./repositories.scss";
@@ -15,13 +16,14 @@ const Repositories = () => {
         <h2>loading </h2>
       ) : (
         <div className="repositories-container">
-          <h2>Repositories ({repsCount})</h2>
+          {repsCount && <h2>Repositories ({repsCount})</h2>}
 
           {repData.length
             ? repData.map((item) => (
                 <RepositoriesItem key={repData.indexOf(item)} {...item} />
               ))
             : "Repository list is empty"}
+          {repsCount && <PaginationBar totalItems={repsCount} />}
         </div>
       )}
     </>

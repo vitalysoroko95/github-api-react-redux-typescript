@@ -16,7 +16,9 @@ const Profile = (props: IProfileProps) => {
     <div className="profile-container">
       <img src={`${props.avatar}`} alt="user_avatar" />
       <p>{props.name}</p>
-      <a href={props.htmlUrl}>{props.login}</a>
+      <a href={props.htmlUrl} target="_blank">
+        {props.login}
+      </a>
       <div className="follow-inform">
         <div>
           {props.followers}
