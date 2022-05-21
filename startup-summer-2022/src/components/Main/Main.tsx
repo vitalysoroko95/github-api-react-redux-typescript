@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/redux";
 import { getRepositories } from "../../store/repositoriesSlice";
 import { getUser } from "../../store/userSlice";
-import Ptofile from "../Profile/Profile";
+import Profile from "../Profile/Profile";
 import Repositories from "../Repositories/Repositories";
 
 import "./main.scss";
@@ -19,16 +19,16 @@ const Main = () => {
     }
   }, [username]);
 
-  useEffect(() => {
-    if (repData && userData) {
-      console.log("reps =>", repData, "userData=>", userData);
-    }
-  }, [repData, userData]);
-
   return (
     <div className="main">
-      <h1>Main</h1>
-      <Ptofile />
+      <Profile
+        avatar={userData.avatar_url}
+        htmlUrl={userData.html_url}
+        name={userData.name}
+        following={userData.following}
+        followers={userData.followers}
+        login={userData.login}
+      />
       <Repositories />
     </div>
   );

@@ -2,12 +2,33 @@ import React from "react";
 
 import "./profile.scss";
 
-const Ptofile = () => {
+interface IProfileProps {
+  avatar: string;
+  htmlUrl: string;
+  name: string;
+  following: number;
+  followers: number;
+  login: string;
+}
+
+const Profile = (props: IProfileProps) => {
   return (
     <div className="profile-container">
-      <h2>ProfileContainer</h2>
+      <img src={`${props.avatar}`} alt="user_avatar" />
+      <p>{props.name}</p>
+      <a href={props.htmlUrl}>{props.login}</a>
+      <div className="follow-inform">
+        <div>
+          {props.followers}
+          followers
+        </div>
+        <div>
+          {props.following}
+          following
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Ptofile;
+export default Profile;

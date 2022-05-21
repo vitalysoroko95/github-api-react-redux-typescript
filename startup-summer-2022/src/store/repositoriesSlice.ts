@@ -20,16 +20,19 @@ const initialState = {
   repData: [],
 };
 
-export const getRepositories: AsyncThunk<any, string, EmptyObject> =
-  createAsyncThunk(
-    "board/createBoard",
-    async (username: string): Promise<any> => {
-      const response: AxiosResponse<any> = await axios.get(
-        `https://api.github.com/users/${username}/repos`
-      );
-      return response.data;
-    }
-  );
+export const getRepositories: AsyncThunk<
+  IRepsDataResponce,
+  string,
+  EmptyObject
+> = createAsyncThunk(
+  "getRepositories",
+  async (username: string): Promise<IRepsDataResponce> => {
+    const response: AxiosResponse<IRepsDataResponce> = await axios.get(
+      `https://api.github.com/users/${username}/repos`
+    );
+    return response.data;
+  }
+);
 
 export const repositoriesSlice = createSlice({
   name: "repositoriesSlice",
@@ -38,10 +41,11 @@ export const repositoriesSlice = createSlice({
   extraReducers: {
     [getRepositories.fulfilled.type]: (
       state: IRepositoriesState,
-      action: PayloadAction<any>
+      action: PayloadAction<IRepsDataResponce[]>
     ) => {
       state.isLoading = false;
       state.repData = action.payload;
+      console.log(state.repData);
       state.error = "";
     },
     [getRepositories.pending.type]: (state: IRepositoriesState) => {

@@ -24,7 +24,7 @@ const initialState = {
 
 export const getUser: AsyncThunk<IUserDataResponce, string, EmptyObject> =
   createAsyncThunk(
-    "board/createBoard",
+    "getUser",
     async (username: string): Promise<IUserDataResponce> => {
       const response: AxiosResponse<IUserDataResponce> = await axios.get(
         `https://api.github.com/users/${username}`
@@ -48,6 +48,7 @@ export const userSlice = createSlice({
     ) => {
       state.isLoading = false;
       state.userData = action.payload;
+      console.log(state.userData);
       state.error = "";
     },
     [getUser.pending.type]: (state: IUserState) => {
