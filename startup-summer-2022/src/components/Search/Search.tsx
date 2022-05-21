@@ -1,13 +1,24 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
+
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useAppDispatch } from "../../store/hooks/redux";
+import { userSlice } from "../../store/userSlice";
 
 import "./search.scss";
 
-const Search = () => {
-  const { register, handleSubmit } = useForm<String>();
+interface IFormInput {
+  search: string;
+}
 
-  const onSubmit: SubmitHandler<String> = (data) => {
-    console.log(data);
+const Search = () => {
+  const dispatch = useAppDispatch();
+
+  const { setUsername } = userSlice.actions;
+  const { register, handleSubmit } = useForm<IFormInput>();
+ 
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    const username = data.search
+    dispatch(setUsername(username)) 
   };
 
   return (
