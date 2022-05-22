@@ -20,6 +20,7 @@
     font-weight: 400;
     font-style: regular;
     color: #808080;
+
 }
 
 .text-field__input:focus {
@@ -28,15 +29,8 @@
     box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
 }
 
-.search-icon {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    top: 24px;
-    left: 118px;
-    background-image: url('../../assets/search_input.svg');
-    background-position: center;
+input[type='text'] {
+    background-image: url(../../assets/search_input.svg);
+    background-position: 14px 14px;
     background-repeat: no-repeat;
-    background-size: 55%;
-}
-
+} 
