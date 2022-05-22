@@ -1,13 +1,9 @@
 .empty-repository {
   display: flex;
-  flex-direction: column;
-  position: absolute;
   align-items: center;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  width: 210px;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
 }
 .empty-repository__img {
   width: 110px;

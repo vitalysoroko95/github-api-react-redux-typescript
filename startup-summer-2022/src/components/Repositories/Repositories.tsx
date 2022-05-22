@@ -24,13 +24,10 @@ const Repositories = () => {
             </h2>
           )}
 
-          {repData.length ? (
+          {repData.length &&
             repData.map((item) => (
               <RepositoriesItem key={repData.indexOf(item)} {...item} />
-            ))
-          ) : (
-            <EmptyRepository />
-          )}
+            ))}
           {repsCount && <PaginationBar totalItems={repsCount} />}
         </div>
       )}

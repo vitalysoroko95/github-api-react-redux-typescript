@@ -34,3 +34,19 @@
     margin: 24px 0;
     background-repeat: no-repeat;
 }
+
+
+
+@media (max-width: 900px) and (min-width: 320px) { 
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: start;
+        width: 100%;
+        height: calc(100vh - 72px); 
+        padding: 28px 56px;
+        gap: 85px;
+    }
+ }

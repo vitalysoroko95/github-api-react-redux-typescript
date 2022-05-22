@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/redux";
 import { getRepositories } from "../../store/repositoriesSlice";
 import { getUser } from "../../store/userSlice";
+import EmptyRepository from "../EmptyRepository/EmptyRepository";
 import Preloader from "../Preloader/Preloader";
 import Profile from "../Profile/Profile";
 import Repositories from "../Repositories/Repositories";
@@ -42,7 +43,7 @@ const Main = () => {
             followers={userData.followers}
             login={userData.login}
           />
-          <Repositories />
+          {repData.length ? <Repositories /> : <EmptyRepository />}
         </div>
       ) : (
         <>

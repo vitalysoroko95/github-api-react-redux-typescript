@@ -34,3 +34,26 @@ input[type='text'] {
     background-position: 14px 14px;
     background-repeat: no-repeat;
 } 
+
+
+@media  (width: 320px) { 
+    .text-field__input {
+        display: block;
+        width:300px;
+        height: 30px;
+        margin: 15px 0;
+        border-radius: 10px;
+        padding: 0;
+        border: none;
+        font-size: 14px;
+        font-family: 'Inter';
+        font-weight: 400;
+        font-style: regular;
+        color: #808080;
+    }
+
+    
+    input[type='text'] {
+    background-image: none;
+    } 
+}
