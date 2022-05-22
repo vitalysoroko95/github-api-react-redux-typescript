@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks/redux";
 import { getRepositories } from "../../store/repositoriesSlice";
 import { getUser } from "../../store/userSlice";
+import Preloader from "../Preloader/Preloader";
 import Profile from "../Profile/Profile";
 import Repositories from "../Repositories/Repositories";
 
@@ -9,7 +10,9 @@ import "./main.scss";
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const { username, userData, error } = useAppSelector((store) => store.user);
+  const { username, userData, error, isLoading } = useAppSelector(
+    (store) => store.user
+  );
   const { repData, currentPage, perPage } = useAppSelector(
     (store) => store.repositories
   );

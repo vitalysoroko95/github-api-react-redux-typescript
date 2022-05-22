@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: start;
     width: 100%;
-    min-height: 696px;
+    height: calc(100vh - 72px); 
     padding: 28px 56px;
     gap: 85px;
 }
@@ -11,12 +11,9 @@
 .welcome-container, .not-found-container{
     display: flex;
     flex-direction: column;
-    position: absolute;
     align-items: center;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
+    justify-content: center;
+    margin:  auto;
     width: 210px;
 }
 
