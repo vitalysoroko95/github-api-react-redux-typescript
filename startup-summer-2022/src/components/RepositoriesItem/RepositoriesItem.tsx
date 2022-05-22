@@ -6,9 +6,11 @@ import "./repositoriesItem.scss";
 
 const RepositoriesItem = (props: IRepsDataResponce) => {
   return (
-    <div className="repositories-container">
-      <h3>{props.name}</h3>
-      <p>
+    <div className="repositories-item-container">
+      <a href={props.html_url} target="_blank">
+        <p className="rep-item-tittle">{props.name}</p>
+      </a>
+      <p className="rep-item-description">
         {props.description !== null
           ? props.description
           : "Описание отсутствует"}

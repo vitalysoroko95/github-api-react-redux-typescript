@@ -4,7 +4,11 @@
     background-color: #0064EB;
     display: flex;
     align-items: center;
+}
 
+.header .container {
+    display: flex;
+    justify-content: start;
 }
 
 .header-logo {

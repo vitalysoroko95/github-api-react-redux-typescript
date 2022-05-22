@@ -1,7 +1,11 @@
 .main {
     display: flex;
     flex-direction: row;
-    
+    justify-content: start;
+    width: 100%;
+    min-height: 696px;
+    padding: 28px 56px;
+    gap: 85px;
 }
 
 .welcome-container, .not-found-container{

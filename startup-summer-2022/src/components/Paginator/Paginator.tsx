@@ -15,7 +15,7 @@ const PaginationBar = (props: IPaginatorProps) => {
   const pagesCount = Math.ceil(props.totalItems / perPage);
   const pages = [];
 
-  const offset = (currentPage - 1) * perPage + 1;
+  const offset = (currentPage - 1) * perPage + 2;
 
   const dispatch = useAppDispatch();
   const { setCurrentPage } = repositoriesSlice.actions;
@@ -31,22 +31,19 @@ const PaginationBar = (props: IPaginatorProps) => {
 
   return (
     <div className="pagination-bar">
-      <div>
+      <div className="info-bar">
         {currentPage == 1 ? currentPage : currentPage * perPage - 3} -{" "}
         {currentPage !== pagesCount ? currentPage * perPage : offset} of{" "}
         {props.totalItems} items
       </div>
       {portionNumber > 1 && (
-        <button
-          className="pagination-button"
+        <div
+          className="pagination-button__left"
           onClick={() => {
             setPortionNumber(portionNumber - 1);
           }}
-        >
-          PREV
-        </button>
+        ></div>
       )}
-
       {pages
         .filter(
           (p) => p >= leftPortionPageNumber && p <= rightPortionPageNumber
@@ -64,16 +61,22 @@ const PaginationBar = (props: IPaginatorProps) => {
             </span>
           );
         })}
-
+      <div>...</div>
+      <div
+        className={currentPage === pagesCount ? "selectedPage" : "pageNumber"}
+        onClick={() => {
+          dispatch(setCurrentPage(pagesCount));
+        }}
+      >
+        {pagesCount}
+      </div>
       {portionCount > portionNumber && (
-        <button
-          className="pagination-button"
+        <div
+          className="pagination-button__right"
           onClick={() => {
-            setPortionNumber(portionNumber + 1);
+            currentPage !== pagesCount && setPortionNumber(portionNumber + 1);
           }}
-        >
-          NEXT
-        </button>
+        ></div>
       )}
     </div>
   );

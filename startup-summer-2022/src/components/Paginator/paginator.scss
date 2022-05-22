@@ -1,31 +1,71 @@
 .pagination-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 20px 0;
-    align-items: center;
-    align-content: center;
-    width: 100%;
-    cursor: pointer;
+   display: flex;
+   flex-direction: row;
+   justify-content: end;
+   align-items: center;
+   align-content: center;
+   min-width: 100%;
+   height: 25px;
+   cursor: pointer;
+   font-family: 'Inter';
+   font-weight: 400;
+   font-style: Regular;
+   font-size: 14px;
+   line-height: 21px;
+   color: #808080;
 }
 
 .selectedPage {
-   border: 2px solid #783fe8;
-   border-radius: 8px;
+   border-radius: 5px;
+   width: 24px;
+   height: 24px;
+   padding: 2px 6px 2px 6px;
+   background-color: #0064EB;
+   text-align: center;
+   color: #ffff;
  
 }
 
 .pageNumber {
-   color: #000000;
-   margin: 0 5px ;
+   font-family: 'Inter';
+   font-weight: 400;
+   font-style: Regular;
+   font-size: 14px;
+   line-height: 21px;
+   margin: 0 10px ;
 }
 
-.pagination-button{
-   width: 60px;
-   border-radius: 10px;
-   color: white;
-   background-color: #009176;
-   border: 2px solid #783fe8;
+.pagination-button__right{
+   width: 18px;
+   height: 18px;
+   background-image: url('../../assets/arrow-right.svg');
+   background-position: center;
+   background-repeat: no-repeat;
    cursor: pointer;
    margin: 0 10px;
+   border: none;
+   background-color: transparent;
+}
+.pagination-button__right:hover {
+   background-image: url('../../assets/arrow-left.svg');
+   transform: rotate(180deg);
+
+}
+.pagination-button__left:hover{
+   background-image: url('../../assets/arrow-left.svg');
+   transform: none;
+}
+
+
+.pagination-button__left{
+   width: 18px;
+   height: 18px;
+   background-image: url('../../assets/arrow-right.svg');
+   transform: rotate(180deg);
+   background-position: center;
+   background-repeat: no-repeat;
+   cursor: pointer;
+   margin: 0 10px;
+   border: none;
+   background-color: transparent;
 }
